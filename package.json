@@ -1,8 +1,27 @@
 {
-  "name": "BriquesGL",
-  "version": "0.0.1",
- 
-  "dependencies": {
-    "express": "*"
-  }
+    "name": "BriquesGL",
+    "description": "",
+    "version": "0.0.1",
+    "main": "app.js",
+    "dependencies": {
+        "express": "*",
+        "react":"*",
+        "react-jade": ">= 0.0.1",
+        "nodeunit": "*",
+        "jsdom":"*"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/reactjs/react-tutorial.git"
+    },
+    "keywords": [
+        "react",
+        "Treejs",
+        "WebGL"
+    ]
 }
