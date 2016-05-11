@@ -11,7 +11,8 @@ module.exports = {
   // (on peut en définir plusieurs)
   entry: {
     index: [
-      "./webtests/testReact.html",
+     // "./webtests/testReact.html",
+      "./webtests/controllerTests.html"
     ],
   },
 
@@ -19,7 +20,7 @@ module.exports = {
   output: {
     // ./dist
    // path: path.join(__dirname, "dist"),
-   path: path.join(__dirname, "../../../build/2Dviews/"),
+   path: path.join(__dirname, "../../../build/tests/"),
     // nous aurons (vu notre point d'entrée)
     // - dist/index.js
    filename: "[name].html",

@@ -1,5 +1,3 @@
-
-var player = require('./Player');
 Game.instance = null;
 function Game(){
     this.props = {
@@ -16,6 +14,9 @@ Game.prototype.getNumberOfPlayers=function(){
 };
 Game.prototype.getScore=function(){
     return this.props.scoreCumule; 
+};
+Game.prototype.addPlayer=function(poPlayerModel){
+    this.props.players.push(poPlayerModel);
 };
 module.exports={"getInstance":function(){
     if(Game.instance == null) Game.instance = new Game();

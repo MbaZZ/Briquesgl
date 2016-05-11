@@ -11,20 +11,19 @@ function Player(){
         "partieEnCours":null
     };
 }
-
+Player.prototype.getPseudo=function(){
+    return this.props.pseudo;
+};
 Player.prototype.winBall=function(){
-   this.props.balles.addItem(ball.create.fromProps({"proprietaire":this})); 
-   console.log('le joueur '+this.props.pseudo+' vient de gagner 1 balle !');
+   this.props.balles.addItem(balleModel.create.fromProps({"proprietaire":this})); 
 };
 Player.prototype.useBall=function(){
-   console.log('le joueur '+this.props.pseudo+' vient de lancer 1 balle !');
     var loBM = this.props.balles.useItem(); 
 };
 Player.prototype.winPouvoir=function(pCode){
    this.props.pouvoirs.addItem(Pouvoir.create.fromProps({"proprietaire":this, "code":pCode})); 
-   console.log('le joueur '+this.props.pseudo+' vient de gagner 1 pouvoir '+pCode+' !');
 };
 Player.prototype.usePouvoir=function(pCode){
-   console.log('le joueur '+this.props.pseudo+' vient de d\'utiliser 1 pouvoir '+pCode+' !');
     var loBM = this.props.pouvoirs.useItem(); 
 };
+module.exports = new Player();

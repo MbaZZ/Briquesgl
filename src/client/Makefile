@@ -1,5 +1,6 @@
-childs=2Dviews 3Dviews
-buildDir=../../../build/
+#childs=2Dviews 3Dviews
+childs=controller
+buildDir=../../build/
 dst=$(buildDir)
 testDir=$(buildDir)tests/client/
 array=(one two three four [5]=five)
@@ -21,5 +22,7 @@ clean:
 	done
 webTest:
 	@echo "test Client"
-	chromium-browser ${PWD}$(testDir)&
+	cp -f indexTest.html $(dst)index.html
+	chromium-browser $(dst)index.html
+	#chromium-browser ${PWD}$(testDir)&
 test: webTest

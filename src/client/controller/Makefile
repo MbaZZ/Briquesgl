@@ -2,13 +2,13 @@ dst=../../../build/public/
 
 all:
 	@echo "----------------------------"
-	@echo "Deploy :2Dviews"	
+	@echo "Deploy :controllers"	
 	@echo "___"
 	webpack
 	@echo "----------------------------"
 clean:
 	@echo "----------------------------"
-	@echo "Clean :2Dviews"	
+	@echo "Clean :controller"	
 	@echo "___"
 	rm -f $(dst)/*
 	@echo "-------------------------"

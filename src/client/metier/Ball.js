@@ -6,7 +6,7 @@ function Ball(){
     };
 };
 Ball.codeball = "stdBall";
-exports.create={
+module.exports.create={
     "fromProps":function(poProps){
         var poBM = new Ball();
         if(poProps){
@@ -14,7 +14,7 @@ exports.create={
                 poBM[i] = poProps[i];
             }
         }
-        return new balleModel();
+        return new Ball();
     },
     "from3DModel":function(po3DModel){
         var poBM = new Ball();

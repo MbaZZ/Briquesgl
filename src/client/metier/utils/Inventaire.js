@@ -1,4 +1,4 @@
-exports={
+module.exports={
     "create":function(){
        return new Inventaire(); 
     }
