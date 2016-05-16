@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+body{
+	background:url(../img/layout/WallDes.jpg);
+}
+#layPresGlobal{
+	position:absolute;	
+/* 	background:black; */
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+div.layPresGauche, div.layPresDroite{
+	position:relative;
+/* 	width:49.99%; */
+	height:100%;
+}
+
+div.layPresGauche{
+	background:white;
+	float:left;
+}
+div.layPresDroite{
+	
+	float:right;
+}
+/* div.layPresDroite img{ */
+/* /* 	width:200px; */ */
+/* } */

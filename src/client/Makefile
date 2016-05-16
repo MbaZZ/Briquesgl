@@ -1,5 +1,5 @@
 #childs=2Dviews 3Dviews
-childs=controller
+childs=controller 2Dviews
 buildDir=../../build/
 dst=$(buildDir)
 testDir=$(buildDir)tests/client/

@@ -1,6 +1,7 @@
 var path = require("path")
 var webpack = require("webpack")
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var babel = require("babel-core/register");
+//var ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 // on peut passer à notre commande de build l'option --production
 // on récupère sa valeur ici en tant que booléen
@@ -12,7 +13,9 @@ module.exports = {
   entry: {
     index: [
      // "./reactElem/test1.js",
-      "./reactElem/reactTest.js"
+      //"./reactElem/reactTest.js"
+      //"./main.js"
+      "./render.jsx"
     ],
   },
 
@@ -76,38 +79,7 @@ module.exports = {
           "json",
         ],
       },
-      {
-        // pour nos CSS, on va utiliser un plugin un peu particulier
-        // qui va nous permettre de require() nos CSS comme un module
-        // mais qui va tout de même permettre de sortir tout cela dans un seul
-        // fichier .css pour la production
-        // (selon un paramètre qu'on définira ci-dessous)
-        test: /\.css$/,
-        // cette méthode possède 2 paramètres :
-        // + loaders à utiliser si ce module est désactivé
-        // + loaders à utiliser dans tous les cas en amont
-        loader: ExtractTextPlugin.extract(
-          // si on extract pas, on utilisera le loader suivant
-          // (ce module chargera les styles dans des tags <style>, suffisant
-          // en mode dév)
-          // en production vous devrez vous charger d'utiliser un
-          // <link rel="stylesheet" ...
-          "style",
-          // dans tous les cas, on utilisera cssnext ainsi que le loader CSS
-          // de base (celui-ci permet de gérer les ressources dans le CSS
-          // en temps que modules: images, font etc)
-          "css!cssnext"
-        ),
-        // Si vous n'avez pas besoin d'avoir une CSS à part, vous pouvez
-        // simplement supprimer la partie "loader" ci-dessus et utiliser plutôt
-        // loaders: [
-        //  "style",
-        //  "css",
-        //  "cssnext",
-        // ],
-        // À noter que dans ce cas, il vous faudra supprimer le plugin
-        // ExtractTextPlugin dans la liste plus bas
-      },
+
       // pour la suite, on va rester simple :
       // un require() en utilisant le file-loader retournera une string avec
       // le nom du fichier et (le plus important) copiera le fichier suivant
@@ -127,18 +99,9 @@ module.exports = {
         ],
       },
       {
-        // idem pour les fonts
-        test: /\.(woff|ttf|otf|eot\?#.+|svg#.+)$/,
-        loaders: [
-          "file?name=[path][name].[ext]&context=./src",
-        ],
-      },
-      {
-        // ici on se permet de loader des fichiers html et txt tels quels
-        test: /\.(html|txt)$/,
-        loaders: [
-          "file?name=[path][name].[ext]&context=./src",
-        ],
+        //tell webpack to use jsx-loader for all *.jsx files
+        test: /\.jsx$/,
+        loader: 'jsx-loader?insertPragma=React.DOM&harmony'
       },
     ],
   },
@@ -147,10 +110,6 @@ module.exports = {
   // contenu des modules, nous avons des plugins, plus globaux au processus
   plugins: (
     [
-      // une partie importante dans notre cas : on active l'extraction CSS (en
-      // production seulement)
-      new ExtractTextPlugin("[name].css", {disable: !production}),
-
       // ce plugin permet de transformer les clés passés en dur dans les
       // modules ainsi vous pourrez faire dans votre code js
       // if (__PROD__) { ... }
@@ -174,11 +133,4 @@ module.exports = {
       : []
     )
   ),
-
-  // certains modules permettent de définir des options en dehors de la
-  // définition des loaders
-  cssnext: {
-    sourcemap: !production,
-    compress: production,
-  },
 }

@@ -1,0 +1,43 @@
+/* 
+    Document   : chat.css
+    Created on : 20 janv. 2011, 23:30:26
+    Author     : MbZ
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#chat_global{
+    margin-left: auto;
+    margin-right: auto;
+
+    width:95%;
+    padding:10px;
+}
+#chat_display{
+/*     min-height:650px; */
+    width:100%;
+    background: white;
+    font-size:90%;
+    overflow: auto;
+}
+#chat_tool{
+    height:10px;
+    width: 100%;
+    font-size:60%;
+}
+#chat_send{
+    width: 100%;
+}
+#chat_send textarea{
+    width:95%;
+}
+#chat_message_envoi{
+	color:green;
+}
+#chat_message_erreur{
+	color:red;
+}
+span.chat_date{
+	font-size:85%;
+	color:gray;
+}

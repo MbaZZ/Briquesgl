@@ -1,0 +1,143 @@
+body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow:hidden;
+}
+
+#infoItems{
+	position:fixed;
+	background:black;
+	opacity:0.9;
+	color:white;
+}
+#infoItems a{
+	color:white;
+}
+
+.infoNbBalles{
+	 font-family: monospace, "Times New Roman", Times, serif;
+	 font-size:300%;
+}
+.webgScore{
+	font-family: monospace, "Times New Roman", Times, serif;
+	font-size:200%;
+}
+
+.black{
+	background:black;
+	color:white;
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+.dropup{
+	z-index:9999;
+}
+#container canvas{
+	cursor:none;
+	z-index:8;
+}
+
+div.webgScore{
+	
+}
+/* div.gameTop{ */
+/* /* 	padding-top:20px; */ */
+/* 	text-align:center; */
+/* 	color:white; */
+/* } */
+/* div.gameTop a{ */
+/* 	color:white;	 */
+/* } */
+/* #container{ */
+/* /* 	min-height:600px; */ */
+/* 	overflow:hidden; */
+/* /* 	height:100%; */ */
+/* 	z-index:5; */
+/* } */
+
+
+/* #container .menuBar{ */
+/* 	background:#000000; */
+/* 	overflow:auto; */
+/* 	border-top:4px #c8c8c8 solid; */
+/* /* 	height:200px; */ */
+/* } */
+/* #container .menuBar .links{ */
+/* /* 	float:right; */ */
+/* /* 	background:#000000; */ */
+/* /* 	padding-bottom:20px; */ */
+/* /* 	padding-top:20px; */ */
+/* /* 	padding-right:20px; */ */
+/* } */
+/* #container .menuBar .links a{ */
+/* 	margin-left:20px; */
+/* /* 	height:100%; */ */
+	
+/* } */
+
+/* div.gameGlobal{ */
+/* 	background:#000000; */
+/* 	position:relative; */
+/* /* 	width:100%; */ */
+/* /* 	height:100%; */ */
+/* /* 	text-align:center;	 */	 */
+/* 	padding:10px;	 */
+/* } */
+/* #container .menuBar .links a.selectione{ */
+/* 	padding-top:45px; */
+/* 	background:green; */
+/* } */
+/* #container .menuBar .message{ */
+/* 	float:left; */
+/* 	font-size:200%; */
+/* 	text-align:center; */
+/* 	width:50%; */
+/* 	color:white; */
+/* } */
+/* #container .menuBar .zoneGauche{ */
+/* 	color:white; */
+/* 	float:left; */
+/* 	width:25%; */
+/* 	padding-top:25px; */
+/* } */
+/* #container .menuBar .zoneGauche span{ */
+/* 	position:relative; */
+/* 	top:-10px; */
+/* 	font-size:50px;; */
+/* 	color:white; */
+/* } */
+
+/* div.scores{ */
+/* 	width:100%; */
+/* 	text-align:center; */
+/* } */
+/* tr.scoreEnregistre{ */
+/* 	font-weight: bold; */
+/* 	background:#cecf9a; */
+/* } */
+/* tr.ligneGrise{ */
+/* 	background:#c8c8c8;	 */
+/* } */
+/* div.scores caption{ */
+/* 	font-size:150%;	 */
+/* 	border:1px black solid; */
+/* 	background:#c8c8c8;	 */
+/* } */
+/* div.scores table{ */
+/* 	width:300px; */
+/* 	margin-bottom:20px; */
+/* } */
+/* div.scores th{ */
+	
+/* } */
