@@ -1,12 +1,11 @@
-let singleton = Symbol(); 
-export class Game{
+export default class Game{
     constructor(){
         this.props = {
             "players":[],
             "scoreCumule":0,
             "statut":"NotStarted"
         };
-        console.log('new instance of Game');
+        console.log('new instance of GameModel ES6');
     }
     isStarted(){
         return this.props.statut == "started"; 
@@ -14,14 +13,10 @@ export class Game{
     get numberOfPlayer(){
         return this.props.players.length; 
     }
-    get score(){
+    getScore(){
         return this.props.scoreCumule; 
     }
     addPlayer(poPlayerModel){
         this.props.players.push(poPlayerModel);
-    }
-    static get instance(){
-        if(!this[singleton]) this[singleton] = new Game();
-        return this[singleton];
     }
 }

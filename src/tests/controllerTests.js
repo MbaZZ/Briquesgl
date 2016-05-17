@@ -1,5 +1,5 @@
 var expect = require("expect.js");
-var http = require("../client/controller/HttpController.js");
+var http = require("./dist/HttpController.js");
 var game = http.gameConfControl;
 var player = http.playerControl;
 function ControllerTests(){
@@ -20,15 +20,20 @@ ControllerTests.prototype.testInstance = function(){
     it("Create simple PlayerController instance", function() {
         expect(player).to.be.an(Object);
     });
-
+    it("GameController have Game instance", function() {
+        expect(gm.gameModel).to.be.an(Object);
+    });
+    it("PlayerController have Player instance", function() {
+        expect(player.playerModel).to.be.an(Object);
+    });
     httpc.config();
 };
 ControllerTests.prototype.testInitState = function(){
-    var gm = this.gameController;
+    var loThis = this;
     it("Game is not started", function() {
-        expect(gm.isStarted()).to.eql(false);
-        expect(gm.getNumberOfPlayers()).to.eql(0);
-        expect(gm.getScore()).to.eql(0);
+        expect(loThis.gameController.gameModel.isStarted()).to.eql(false);
+        expect(loThis.gameController.gameModel.getNumberOfPlayers()).to.eql(0);
+        expect(loThis.gameController.gameModel.getScore()).to.eql(0);
     });
 };
 module.exports = new ControllerTests();

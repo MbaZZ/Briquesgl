@@ -1,0 +1,14 @@
+export default Pouvoir{
+    constructor(poProps){
+        this.proprietes = {
+           "code":0,
+           "bonus":null,
+           "proprietaire":null
+        };
+        if(poProps){
+            for(var i in poProps){
+                this[i] = poProps[i];
+            }
+        }
+    }
+};

@@ -11,17 +11,16 @@ module.exports = {
   // (on peut en définir plusieurs)
   entry: {
     index: [
-      "./webRouter.js",
+      "../client/controller/HttpController.js",
     ],
   },
 
   // description de nos sorties
   output: {
-   // path: path.join(__dirname, "dist"),
-   path: path.join(__dirname, "../../../build/public/"),
+   path: path.join(__dirname, "dist"),
     // nous aurons (vu notre point d'entrée)
     // - dist/index.js
-   filename: "controllers.js",
+   filename: "HttpController.js",
    // filename: "output.js",
     // notre base url
     publicPath: "/",

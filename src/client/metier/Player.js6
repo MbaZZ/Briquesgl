@@ -1,0 +1,30 @@
+import Inventaire from './utils/Inventaire.js6'
+import balleModel from './Ball.js6';
+
+export default class Player{
+    constructor(){
+        this.props = {
+            pseudo:"pasDeNom",
+            score:0,
+            bonus:0,
+            balles: new Inventaire(),
+            pouvoirs: new Inventaire(),
+            partieEnCours:null
+        };
+    }
+    getPseudo(){
+        return this.props.pseudo;
+    }
+    winBall(){
+       this.props.balles.addItem(balleModel.create.fromProps({"proprietaire":this})); 
+    }
+    useBall(){
+        var loBM = this.props.balles.useItem(); 
+    }
+    winPouvoir(pCode){
+       this.props.pouvoirs.addItem(Pouvoir.create.fromProps({"proprietaire":this, "code":pCode})); 
+    }
+    usePouvoir(pCode){
+        var loBM = this.props.pouvoirs.useItem(); 
+    }
+}
