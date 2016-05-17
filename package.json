@@ -15,6 +15,7 @@
     "babel-loader": "^6.0.0",
     "eslint-loader": "*",
     "jsx-loader": "*",
+    "expect.js": "*",
     "bootstrap": "*",
     "jquery": "*",
     "react": "*",

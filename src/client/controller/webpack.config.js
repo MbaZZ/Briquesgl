@@ -11,9 +11,7 @@ module.exports = {
   // (on peut en définir plusieurs)
   entry: {
     index: [
-      "./GameConfigController.js",
-      "./HttpController.js",
-      "./PlayerInGameController.js",
+      "./webRouter.js",
     ],
   },
 

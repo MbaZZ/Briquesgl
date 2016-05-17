@@ -22,3 +22,4 @@ module.exports={"getInstance":function(){
     if(Game.instance == null) Game.instance = new Game();
     return Game.instance;
 }}
+
