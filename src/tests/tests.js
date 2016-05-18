@@ -1,9 +1,9 @@
 //var expect = require("expect.js");
- //var metierTest = require("./metierTests.js");
+var metierTest = require("./metierTests.js");
 
 describe("Tests metier", function() {
-   // metierTest.testInstance();
-    //metierTest.testInitState();
+   metierTest.testInstance();
+   metierTest.testInitState();
 });
 
 

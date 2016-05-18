@@ -10,7 +10,7 @@ export default class Game{
     isStarted(){
         return this.props.statut == "started"; 
     }
-    get numberOfPlayer(){
+    getNumberOfPlayer(){
         return this.props.players.length; 
     }
     getScore(){

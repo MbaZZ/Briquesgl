@@ -4,7 +4,6 @@ function HttpController(){
 }
 
 HttpController.prototype.config=function(){
-    console.log('config');
     //this.playerControl.winBall();
     this.gameConfControl.addPlayer(this.playerControl.playerModel);
 };
