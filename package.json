@@ -28,7 +28,7 @@
   },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register src/tests/tests.js",
-    "start": "node src/server/web/index.js",
+    "startWeb": "node src/server/web",
     "startGame": "node src/server/game/index.js"
   },
   "repository": {
