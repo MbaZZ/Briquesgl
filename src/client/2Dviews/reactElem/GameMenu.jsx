@@ -48,7 +48,7 @@ var ListElementMenu = React.createClass({
   render: function() {
     var ElemNode = this.props.data.map(function(dataElem){
         return (
-           <ElementMenu data={dataElem}>{dataElem.libel}</ElementMenu> 
+           <ElementMenu key={dataElem.id} data={dataElem}>{dataElem.libel}</ElementMenu> 
         );
     });
     return (

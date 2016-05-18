@@ -20,7 +20,8 @@
     "jquery": "*",
     "react": "*",
     "react-dom": "*",
-    "react-bootstrap":"*"
+    "react-bootstrap":"*",
+    "socket.io":"*"
   },
   "devDependencies": {
     "babel-cli": "~6.8.0",
