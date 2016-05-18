@@ -1,12 +1,11 @@
-
 function HttpController(){
     this.gameConfControl = require('./GameConfigController.js');
     this.playerControl= require('./PlayerInGameController.js');
 }
 
 HttpController.prototype.config=function(){
-    console.log('config');
-    this.playerControl.winBall();
+    //this.playerControl.winBall();
+    this.gameConfControl.addPlayer(this.playerControl.playerModel);
 };
 
 HttpController.prototype.inGame=function(){

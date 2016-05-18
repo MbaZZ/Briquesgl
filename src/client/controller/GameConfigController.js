@@ -1,6 +1,7 @@
-var gameModel = require('../metier/Game.js');
+var Game = require('../metier/Game.js6');
+
 function GameConfigController(){
-    this.gameModel = gameModel.getInstance(); 
+    this.gameModel = new Game.default();
 }
 GameConfigController.prototype.addPlayer=function(poPlayerModel){
     this.gameModel.addPlayer(poPlayerModel);

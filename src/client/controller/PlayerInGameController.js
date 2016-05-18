@@ -1,6 +1,7 @@
+var Player = require('../metier/Player.js6');
+
 function PlayerInGameController(){ 
-    this.playerModel = require('../metier/Player.js');
-    //this.gameController.addPlayer(this.playerModel);
+    this.playerModel = new Player.default();
 }
 PlayerInGameController.prototype.winBall=function(){
    console.log('le joueur '+this.playerModel.getPseudo()+' vient de gagner 1 balle !');

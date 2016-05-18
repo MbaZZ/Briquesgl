@@ -65,7 +65,17 @@ module.exports = {
         // leur nom "-loader". Si ce n'était pas le cas, ou que votre loader
         // ne comporte pas -loader, vous pouvez spécifier le nom entier :
         // loader: "babel-loader!eslint-loader",
-      }
+      },
+      {
+        //tell webpack to use jsx-loader for all *.jsx files
+        test: /\.js6$/,
+        loader: 'babel',
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel', // 'babel-loader' is also a legal name to reference
+        query: {
+            presets: ['es2015']
+        }
+      },
     ]
   },
 

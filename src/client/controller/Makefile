@@ -10,5 +10,5 @@ clean:
 	@echo "----------------------------"
 	@echo "Clean :controller"	
 	@echo "___"
-	rm -f $(dst)/*
+	rm -f $(dst)
 	@echo "-------------------------"

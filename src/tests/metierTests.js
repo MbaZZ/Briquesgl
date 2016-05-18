@@ -1,8 +1,8 @@
 var expect = require("expect.js");
-var game = require("../client/metier/Game");
+var Game = require("../client/metier/Game.js6");
 
 function ModelTests(){
-    this.gameController = game.getInstance();
+    this.gameController = new Game.default();
 }
 ModelTests.prototype.testInstance = function(){
     var gm = this.gameController;
@@ -12,16 +12,12 @@ ModelTests.prototype.testInstance = function(){
     it("Game having properties", function() {
         expect(gm.props).to.be.an(Object);
     });
-    it("Game is a singleton", function() {
-        var game2 = game.getInstance();
-        expect(game2).to.equal(gm);
-    });
 };
 ModelTests.prototype.testInitState = function(){
     var gm = this.gameController;
     it("Game is not started", function() {
         expect(gm.isStarted()).to.eql(false);
-        expect(gm.getNumberOfPlayers()).to.eql(0);
+        expect(gm.getNumberOfPlayer()).to.eql(0);
         expect(gm.getScore()).to.eql(0);
     });
 };
