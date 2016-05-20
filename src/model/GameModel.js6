@@ -1,0 +1,19 @@
+export default class GameModel{
+    constructor(){
+        this.props = {
+            "players":[],
+            "scoreCumule":0,
+            "statut":"NotStarted"
+        };
+        console.log('new instance of GameModel ES6');
+    }
+    isStarted(){
+        return this.props.statut == "started"; 
+    }
+    getNumberOfPlayer(){
+        return this.props.players.length; 
+    }
+    getScore(){
+        return this.props.scoreCumule; 
+    }
+}

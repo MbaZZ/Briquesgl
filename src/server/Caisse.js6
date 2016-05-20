@@ -1,0 +1,15 @@
+export default class Caisse{
+    constructor(poProps){
+        this.proprietes = {
+           code:0,
+           resistance:100,
+           points:100,
+           bonus:false
+        };
+        if(poProps){
+            for(var i in poProps){
+                this[i] = poProps[i];
+            }
+        }
+    }
+};
