@@ -54,7 +54,6 @@ module.exports = {
         // ("rien" est une option tout à fait valable si vous codez en ES5
         // sans linter)
         loaders: [
-          "babel",
           "eslint",
         ],
 
@@ -71,11 +70,16 @@ module.exports = {
         test: /\.js6$/,
         loader: 'babel',
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel', // 'babel-loader' is also a legal name to reference
         query: {
             presets: ['es2015']
         }
       },
+      {
+        //tell webpack to use jsx-loader for all *.jsx files
+        test: /\.jsx$/,
+        loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+      },
+
     ]
   },
 

@@ -2,10 +2,10 @@ function HttpController(){
     this.gameConfControl = require('./GameConfigController.js');
     this.playerControl= require('./PlayerInGameController.js');
 }
+HttpController.instance = new HttpController();
 
 HttpController.prototype.config=function(){
-    //this.playerControl.winBall();
-    this.gameConfControl.addPlayer(this.playerControl.playerModel);
+    return this.gameConfControl.home();
 };
 
 HttpController.prototype.inGame=function(){

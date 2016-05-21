@@ -1,7 +1,0 @@
-import GameModel from '../../model/GameModel.js6'; 
-
-export default class Game extends GameModel{
-    addPlayer(poPlayerModel){
-        this.props.players.push(poPlayerModel);
-    }
-}

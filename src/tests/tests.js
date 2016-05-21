@@ -1,6 +1,5 @@
 //var expect = require("expect.js");
 var metierTest = require("./metierTests.js");
-
 describe("Tests metier", function() {
    metierTest.testInstance();
    metierTest.testInitState();
@@ -8,8 +7,12 @@ describe("Tests metier", function() {
 
 
 var controllerTest = require("./controllerTests.js");
-
 describe("Tests controllers", function() {
    controllerTest.testInstance();
    controllerTest.testInitState();
+});
+
+var paramTest = require("./paramsTest.js");
+describe("Tests SettingsModel", function() {
+    paramTest.simpleTest();
 });

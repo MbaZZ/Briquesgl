@@ -1,0 +1,13 @@
+let list= {};
+export default class SettingModel{
+    static initialize(psParamId, psParamVal, psDefValue){
+        psParamVal=psParamVal==null || psParamVal==undefined?psDefValue:psParamVal;
+        list[psParamId] = psParamVal;
+    }
+    static get(psParamId){	
+        return list[psParamId];
+    }
+    static set(psParamId, psParamVal){
+        list[psParamId] = psParamVal;
+    }
+}

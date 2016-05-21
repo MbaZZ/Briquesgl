@@ -1,3 +1,0 @@
-import PouvoirModel from '../../model/PouvoirModel.js6';
-export default class Pouvoir extends PouvoirModel{
-};

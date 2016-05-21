@@ -1,0 +1,6 @@
+import SettingModel from '../../model/SettingModel.js6'
+export default class Setting extends SettingModel{
+    static sync(){
+
+    }
+}
