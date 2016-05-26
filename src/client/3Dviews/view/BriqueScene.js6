@@ -1,0 +1,8 @@
+import { Scene } from 'three';
+
+export default class BriqueScene extends Scene{
+    constructor(){
+        super();
+	console.log('new Scene');
+    }
+}
