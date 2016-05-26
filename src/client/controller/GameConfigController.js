@@ -17,6 +17,7 @@ function GameConfigController(){
     Setting.initialize('activerEffetSon', true);
     Setting.initialize('zik', lsZikName);
     Setting.sync();
+
 }
 GameConfigController.prototype.home=function(){
     return {view:'Home', data:dataView};

@@ -79,7 +79,20 @@ module.exports = {
         test: /\.jsx$/,
         loader: 'jsx-loader?insertPragma=React.DOM&harmony'
       },
-
+      {
+        //tell webpack to use jsx-loader for all *.jsx files
+        test: /\.jsx6$/,
+	loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015', 'react']
+        }
+      },
+	  {
+        //tell webpack to use jsx-loader for all *.jsx files
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
     ]
   },
 

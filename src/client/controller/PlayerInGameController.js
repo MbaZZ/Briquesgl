@@ -1,7 +1,10 @@
 var Player = require('../metier/Player.js6');
+var Scene3D = require('../3Dviews/view/BriqueScene.js6').default;
 
 function PlayerInGameController(){ 
     this.playerModel = new Player.default();
+    this.scene = new Scene3D();
+
 }
 PlayerInGameController.prototype.winBall=function(){
    console.log('le joueur '+this.playerModel.getPseudo()+' vient de gagner 1 balle !');

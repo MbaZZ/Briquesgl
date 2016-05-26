@@ -5,13 +5,13 @@ describe("Tests metier", function() {
    metierTest.testInitState();
 });
 
-
+/*
 var controllerTest = require("./controllerTests.js");
 describe("Tests controllers", function() {
    controllerTest.testInstance();
    controllerTest.testInitState();
 });
-
+*/
 var paramTest = require("./paramsTest.js");
 describe("Tests SettingsModel", function() {
     paramTest.simpleTest();

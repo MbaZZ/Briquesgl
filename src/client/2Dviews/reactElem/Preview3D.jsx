@@ -1,7 +1,8 @@
 var React = require('react');
+var Render3D = require('../../3Dviews/render.jsx6').default;
 module.exports = React.createClass({
   render: function() {
-    return (
+   return (
         <div>
             <div className="thumbnail">
                 <p>
@@ -9,6 +10,7 @@ module.exports = React.createClass({
                     hahahaha
                     jfefd
                 </p>
+		<Render3D />
             </div>
             <div className="Caption">
                 Caption here !
