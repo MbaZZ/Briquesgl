@@ -1,0 +1,92 @@
+import React from 'react';
+import MyAppReact from './MyAppReact.jsx6';
+
+var dataState={
+   pseudo:"Toto 1er",
+   gameMenu:"",
+   difficulte:"Dure",
+   stage:"Lois de la brique",
+   level:"leve1"
+
+}
+function StateChanger(){
+    this.pfs=[];
+    var loThis=this;
+    var it = setInterval(function(){
+        for(var i in loThis.pfs){
+            loThis.pfs[i](dataState);
+        }
+    }, 500);
+}
+StateChanger.prototype.addCallBack=function(pfCall){
+   this.pfs.push(pfCall); 
+};
+var gstate = new StateChanger();
+
+
+
+class ElementMenu extends MyAppReact{
+
+  constructor(props, context){
+    super(props, context);
+    console.log('ici');
+    this.state =  {data: {}};
+  }
+
+  componentDidMount(){
+    console.log('ici!');
+        var loThis=this;
+        gstate.addCallBack(function(dataIn){
+            loThis.setState({data:dataIn});
+        });
+  }
+
+  render(){
+    return (
+      <a className="list-group-item" data-gameMenuElemId="{this.prop.data.idElem}">
+        {this.props.children} - 
+        <input type="text" value={this.state.data[this.props.data.id]} placeholder="Your name" />
+      </a>
+    );
+  }
+
+}
+ 
+class ListElementMenu extends MyAppReact{
+
+  render(){
+    var ElemNode = this.props.data.map(function(dataElem){
+        return (
+           <ElementMenu key={dataElem.id} data={dataElem}>{dataElem.libel}</ElementMenu> 
+        );
+    });
+    return (
+       <div>
+       {ElemNode} 
+       </div>
+    );
+  }
+}
+
+class CommentForm extends MyAppReact {
+  render(){
+    return (
+      <div className="commentForm">
+        Hello, world! I am a CommentForm.
+      </div>
+    );
+  }
+}
+
+export default class GameMenu extends MyAppReact {
+  render(){
+    return (
+      <div className="GameMenu">
+        <div class="list-group">
+            <h1>{this.props.data.title}</h1>
+            <ListElementMenu data={this.props.data.listElems} />
+        </div>
+      </div>
+    );
+  }
+}

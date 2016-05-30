@@ -1,5 +1,5 @@
 var React = require('react');
-var GameMenu = require('./GameMenu.jsx6').default;
+var GameMenu = require('./GameMenu.jsx');
 var Preview3D = require('./Preview3D.jsx');
 module.exports = React.createClass({
   render: function() {

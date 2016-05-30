@@ -1,0 +1,9 @@
+import React from 'react';
+
+export default class MyAppReact extends React.Component {
+  constructor(props, context){
+    super(props, context);
+    console.log('AppReact implement !');
+  }
+
+}
