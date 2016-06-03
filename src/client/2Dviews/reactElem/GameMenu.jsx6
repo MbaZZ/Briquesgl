@@ -29,7 +29,6 @@ class ElementMenu extends MyAppReact{
 
   constructor(props, context){
     super(props, context);
-    console.log('ici');
     this.state =  {data: {}};
   }
 

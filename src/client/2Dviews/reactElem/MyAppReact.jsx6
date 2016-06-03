@@ -3,7 +3,11 @@ import React from 'react';
 export default class MyAppReact extends React.Component {
   constructor(props, context){
     super(props, context);
-    console.log('AppReact implement !');
+    if(props.data && props.data.syncState){
+      for(var i in props.data.syncState){
+          console.log('syncrhonisation state ' + i + ' avec la donnée ' + props.data.syncState[i]);
+      }
+    }
   }
   connectState(psStateName, psDataPath){
 
