@@ -1,15 +1,12 @@
-var React = require('react');
-var Render3D = require('../../3Dviews/render.jsx6').default;
-module.exports = React.createClass({
-  render: function() {
+import React from 'react';
+import MyAppReact from './MyAppReact.jsx6';
+import Render3D from '../../3Dviews/render.jsx6';
+
+export default class Preview3D extends MyAppReact{
+  render() {
    return (
         <div>
             <div className="thumbnail">
-                <p>
-                    mouhahahah
-                    hahahaha
-                    jfefd
-                </p>
 		<Render3D />
             </div>
             <div className="Caption">
@@ -18,4 +15,4 @@ module.exports = React.createClass({
         </div>
     );
   }
-});
+}

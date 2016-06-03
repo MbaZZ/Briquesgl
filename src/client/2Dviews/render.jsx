@@ -1,4 +1,4 @@
-var Home = require('./reactElem/Home.jsx');
+var Home = require('./reactElem/Home.jsx6').default;
 function LayoutManager(){
     this.state = {};
 }
@@ -9,7 +9,7 @@ LayoutManager.prototype.render=function(psRenderName, poData){
         case 'Home':
             ReactDOM.render(
               <div>
-              <Home data={poData}/>
+               <Home data={poData}/>
               </div>,  document.getElementById('content')
             );
             break;

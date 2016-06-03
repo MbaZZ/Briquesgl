@@ -1,8 +1,10 @@
-var React = require('react');
-var GameMenu = require('./GameMenu.jsx');
-var Preview3D = require('./Preview3D.jsx');
-module.exports = React.createClass({
-  render: function() {
+import React from 'react';
+import MyAppReact from './MyAppReact.jsx6';
+import GameMenu from './GameMenu.jsx6';
+import Preview3D from './Preview3D.jsx6';
+
+export default class Home extends MyAppReact{
+  render() {
     return (
         <div className="container">
             <div className="row">
@@ -16,4 +18,4 @@ module.exports = React.createClass({
         </div>
     );
   }
-});
+}
