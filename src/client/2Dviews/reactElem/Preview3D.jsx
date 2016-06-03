@@ -5,11 +5,6 @@ module.exports = React.createClass({
    return (
         <div>
             <div className="thumbnail">
-                <p>
-                    mouhahahah
-                    hahahaha
-                    jfefd
-                </p>
 		<Render3D />
             </div>
             <div className="Caption">

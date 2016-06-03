@@ -5,5 +5,8 @@ export default class MyAppReact extends React.Component {
     super(props, context);
     console.log('AppReact implement !');
   }
+  connectState(psStateName, psDataPath){
+
+  }
 
 }
