@@ -16,7 +16,13 @@ function GameConfigController(){
     Setting.initialize('activerZik', true);
     Setting.initialize('activerEffetSon', true);
     Setting.initialize('zik', lsZikName);
-    Setting.sync();
+    //unused for the moment : Setting.sync();
+
+    //Setting.initialize('game.player.current.pseudo', 'Jean much much');
+    Setting.set('game.player.current.pseudo', 'Jean much much');
+    Setting.set('game.settings.difficulty', 4);
+    Setting.set('game.stage', 'Stage 1 : Aie');
+    Setting.set('game.currentLevel', 'Level 1 : Ca va piquer !');
 
 }
 GameConfigController.prototype.home=function(){

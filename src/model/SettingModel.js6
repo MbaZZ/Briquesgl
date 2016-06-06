@@ -10,4 +10,14 @@ export default class SettingModel{
     static set(psParamId, psParamVal){
         list[psParamId] = psParamVal;
     }
+    static setObject(psParamId, poParamVal){
+        var curPath = psParamId;
+	for(var i in poParamVal){
+	   curPath = psParamId + '.' +i; 
+	   if(typeof poParamVal[i] == "object") 
+	        SettingModel.setObject(curPath, poParamVal[i]);
+	   else
+		SettingModel.set(curPath, poParamVal[i]);
+	}
+    }
 }

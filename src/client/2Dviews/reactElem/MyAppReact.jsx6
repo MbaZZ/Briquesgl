@@ -1,16 +1,29 @@
 import React from 'react';
+import Param from '../../metier/Setting.js6';
 
 export default class MyAppReact extends React.Component {
   constructor(props, context){
     super(props, context);
-    if(props.data && props.data.syncState){
-      for(var i in props.data.syncState){
-          console.log('syncrhonisation state ' + i + ' avec la donnée ' + props.data.syncState[i]);
+    this.state =  {data: {}};
+  }
+  componentDidMount(){
+    var loThis = this;
+    if(this.props.data && this.props.data.syncState){
+      for(var i in this.props.data.syncState){
+          console.log('syncrhonisation state ' + i + ' avec la donnée ' + this.props.data.syncState[i]);
+	  var lsDataPath = this.props.data.syncState[i];
+          Param.addListener(lsDataPath, function(pParaVal){
+              loThis.updateState(i, pParamVal);
+          });
+	  var value = Param.get(lsDataPath);
+          if(value)
+	  	this.updateState(i, value);
       }
     }
   }
-  connectState(psStateName, psDataPath){
-
+  updateState(psStateName, pParamVal){
+	this.state[psStateName] = pParamVal; 
+	this.setState(this.state);
   }
 
 }
