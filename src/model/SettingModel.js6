@@ -12,12 +12,16 @@ export default class SettingModel{
     }
     static setObject(psParamId, poParamVal){
         var curPath = psParamId;
-	for(var i in poParamVal){
-	   curPath = psParamId + '.' +i; 
-	   if(typeof poParamVal[i] == "object") 
-	        SettingModel.setObject(curPath, poParamVal[i]);
-	   else
-		SettingModel.set(curPath, poParamVal[i]);
-	}
+        for(var i in poParamVal){
+           curPath = psParamId + '.' +i; 
+               
+           if(typeof poParamVal[i] === "object") 
+                SettingModel.setObject(curPath, poParamVal[i]);
+           else
+                SettingModel.set(curPath, poParamVal[i]);
+
+           if(poParamVal[i] instanceof Array)
+               SettingModel.set(curPath + '.length', poParamVal[i].length);
+        }
     }
 }

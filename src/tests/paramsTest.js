@@ -48,6 +48,7 @@ ParamTest.prototype.simpleTest=function(){
         expect(Param.get("game.players.player4")).to.eql("toto4");
         expect(Param.get("game.tableau.0")).to.eql("hello");
         expect(Param.get("game.tableau.2")).to.eql("hoho");
+        expect(Param.get("game.tableau.length")).to.eql(4);
     });
 };
 module.exports=new ParamTest();
