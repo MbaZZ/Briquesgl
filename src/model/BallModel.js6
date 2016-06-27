@@ -1,3 +1,4 @@
+import Setting from './SettingModel.js6' 
 function BallModel(){
     this.proprietes = {
        "code":Ball.codeBall,
