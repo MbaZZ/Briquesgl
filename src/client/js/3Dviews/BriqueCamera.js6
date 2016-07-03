@@ -1,0 +1,9 @@
+import { PerspectiveCamera } from 'three';
+
+export default class BriqueCamera extends PerspectiveCamera{
+    constructor(){
+        super();
+        this.position.z = 1000;
+    	console.log('new Camera'); 
+    }
+}

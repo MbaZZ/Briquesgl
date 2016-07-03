@@ -1,13 +1,13 @@
 import React from 'react';
 import MyAppReact from './MyAppReact.jsx6';
-import Render3D from '../../3Dviews/render.jsx6';
+//import Render3D from '../../3Dviews/render.jsx6';
 
 export default class Preview3D extends MyAppReact{
   render() {
    return (
         <div>
-            <div className="thumbnail">
-		<Render3D />
+            <div className="thumbnail" id="renderPreview3D">
+            <p>No render</p>
             </div>
             <div className="Caption">
                 Caption here !

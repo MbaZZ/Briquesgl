@@ -1,3 +1,11 @@
+var layout = require('../2Dviews/LayoutManager.jsx'); 
+
+var objet3D = {
+    Scene : require('../3Dviews/BriqueScene.js6').default,
+    Ball : require('../3Dviews/BriqueBall.js6').default,
+    Camera : require('../3Dviews/BriqueCamera.js6').default,
+    Renderer : require('../3Dviews/BriqueRenderer.js6').default
+};
 var Game = require('../metier/Game.js6').default;
 var Setting = require('../metier/Setting.js6').default;
 var dataView  = require('../params/viewData.fr.json');
@@ -26,6 +34,14 @@ function GameConfigController(){
 
 }
 GameConfigController.prototype.home=function(){
+    layout.render('Home', dataView);
+    this.scene = new objet3D.Scene(); 
+    this.renderer = new objet3D.Renderer();
+    this.ball = new objet3D.Ball();
+    this.camera = new objet3D.Camera();
+    this.scene.add(this.ball);
+    this.renderer.render(this.scene, this.camera);
+    document.getElementById('renderPreview3D').appendChild(this.renderer.domElement); 
     return {view:'Home', data:dataView};
 };
 module.exports=new GameConfigController(); 

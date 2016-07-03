@@ -51,7 +51,7 @@ export default class GameMenu extends MyAppReact {
   render(){
     return (
       <div className="GameMenu">
-        <div class="list-group">
+        <div className="list-group">
             <h1>{this.props.data.title}</h1>
             <ListElementMenu data={this.props.data.listElems} />
         </div>

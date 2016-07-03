@@ -1,4 +1,4 @@
-import SettingModel from '../../model/SettingModel.js6'
+import SettingModel from '../../../model/SettingModel.js6'
 let callBack = {};
 export default class Setting extends SettingModel{
     static sync(){

@@ -1,6 +1,5 @@
 var $ = require('jquery');
-var layout = require('../2Dviews/render.jsx'); 
-var httpC = require('./HttpController.js');
+var httpC = require('./controller/HttpController.js');
 $( document ).ready(function() {
     var url = 'config';
     var retModelAndView = {}; 
@@ -14,5 +13,4 @@ $( document ).ready(function() {
         default:
             console.log('erreur, url non gérée : '+url);break;
     }
-    layout.render(retModelAndView.view, retModelAndView.data);
 });

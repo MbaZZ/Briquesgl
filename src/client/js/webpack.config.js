@@ -1,7 +1,6 @@
 var path = require("path")
 var webpack = require("webpack")
-var babel = require("babel-core/register");
-//var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 // on peut passer à notre commande de build l'option --production
 // on récupère sa valeur ici en tant que booléen
@@ -12,21 +11,17 @@ module.exports = {
   // (on peut en définir plusieurs)
   entry: {
     index: [
-     // "./reactElem/test1.js",
-      //"./reactElem/reactTest.js"
-      //"./main.js"
-      "./render.jsx"
+      "./webRouter.js",
     ],
   },
 
   // description de nos sorties
   output: {
-    // ./dist
    // path: path.join(__dirname, "dist"),
-   path: path.join(__dirname, "../../../build/public/"),
+   path: path.join(__dirname, "../../../build/client/js/"),
     // nous aurons (vu notre point d'entrée)
     // - dist/index.js
-   filename: "2dViews.js",
+   filename: "briqueGL.js",
    // filename: "output.js",
     // notre base url
     publicPath: "/",
@@ -59,8 +54,6 @@ module.exports = {
         // ("rien" est une option tout à fait valable si vous codez en ES5
         // sans linter)
         loaders: [
-          "babel",
-          "eslint",
         ],
 
         // à noter que l'on peut définir les loaders de cette façon
@@ -71,39 +64,35 @@ module.exports = {
         // ne comporte pas -loader, vous pouvez spécifier le nom entier :
         // loader: "babel-loader!eslint-loader",
       },
-      // à l'inverse de node et browserify, Webpack ne gère pas les json
-      // nativement, il faut donc un loader pour que cela soit transparent
       {
-        test: /\.json$/,
-        loaders: [
-          "json",
-        ],
-      },
-
-      // pour la suite, on va rester simple :
-      // un require() en utilisant le file-loader retournera une string avec
-      // le nom du fichier et (le plus important) copiera le fichier suivant
-      // le paramètre "name" dans l'output.path que nous avons défini tout
-      // au début de notre configuration.
-      // Notez qu'il dégagera la partie context du nom lors du retour en string
-      // et la remplacera par le l'output.path défini pour la copie.
-      {
-        // on chargera tous les formats d'images qui nous intéressent en tant
-        // que fichiers.
-        test: /\.(ico|jpe?g|png|gif)$/,
-        loaders: [
-          "file?name=[path][name].[ext]&context=./src",
-          // Vous remarquerez ici la méthode utilisée pour définir
-          // des options pour les loaders. Il en existe d'autres avec les
-          // versions les plus récentes en utilisant la clé "query"
-        ],
+        //tell webpack to use jsx-loader for all *.jsx files
+        test: /\.js6$/,
+        loader: 'babel',
+        exclude: /(node_modules|bower_components)/,
+        query: {
+            presets: ['es2015']
+        }
       },
       {
         //tell webpack to use jsx-loader for all *.jsx files
         test: /\.jsx$/,
         loader: 'jsx-loader?insertPragma=React.DOM&harmony'
       },
-    ],
+      {
+        //tell webpack to use jsx-loader for all *.jsx files
+        test: /\.jsx6$/,
+	loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015', 'react']
+        }
+      },
+	  {
+        //tell webpack to use jsx-loader for all *.jsx files
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+    ]
   },
 
   // en plus des loaders, qui premettent eux de modifier et/ou d'exploiter le
@@ -133,4 +122,11 @@ module.exports = {
       : []
     )
   ),
+
+  // certains modules permettent de définir des options en dehors de la
+  // définition des loaders
+  cssnext: {
+    sourcemap: !production,
+    compress: production,
+  },
 }

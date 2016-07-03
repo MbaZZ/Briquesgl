@@ -1,4 +1,4 @@
-import BallModel from '../../model/BallModel.js6'; 
+import BallModel from '../../../model/BallModel.js6'; 
 export default class Ball extends BallModel{
     constructor(){
 	    this.proprietes = {
