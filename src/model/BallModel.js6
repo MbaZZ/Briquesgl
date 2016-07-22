@@ -1,24 +1,11 @@
-import Setting from './SettingModel.js6' 
-function BallModel(){
-    this.proprietes = {
-       "code":Ball.codeBall,
-       "bonus":null,
-       "proprietaire":null
-    };
-};
-BallModel.codeball = "stdBall";
-module.exports.create={
-    "fromProps":function(poProps){
-        var poBM = new Ball();
-        if(poProps){
-            for(var i in poProps){
-                poBM[i] = poProps[i];
-            }
-        }
-        return new Ball();
-    },
-    "from3DModel":function(po3DModel){
-        var poBM = new Ball();
-        poBM.proprietes.code = po3DModel.type;
+import AppModel from './AppModel.js6' 
+export default class BallModel extends AppModel{
+    constructor(id){
+	    super(id, {
+	       "code":"stdBall",
+	       "taille":100,
+	       "bonus":null,
+	       "proprietaire":null
+	    });
     }
 };

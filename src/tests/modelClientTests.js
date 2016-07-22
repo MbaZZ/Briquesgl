@@ -1,5 +1,5 @@
 var expect = require("expect.js");
-var Game = require("../client/metier/Game.js6");
+var Game = require("../client/js/model/Game.js6");
 
 function ModelTests(){
     this.gameController = new Game.default();
@@ -17,7 +17,7 @@ ModelTests.prototype.testInitState = function(){
     var gm = this.gameController;
     it("Game is not started", function() {
         expect(gm.isStarted()).to.eql(false);
-        expect(gm.getNumberOfPlayer()).to.eql(0);
+        expect(gm.getNumberOfPlayers()).to.eql(0);
         expect(gm.getScore()).to.eql(0);
     });
 };

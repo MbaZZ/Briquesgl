@@ -1,5 +1,5 @@
 var expect = require("expect.js");
-var http = require("../client/controller/HttpController.js");
+var http = require("../client/js/controller/HttpController.js");
 var game = http.gameConfControl;
 var player = http.playerControl;
 function ControllerTests(){

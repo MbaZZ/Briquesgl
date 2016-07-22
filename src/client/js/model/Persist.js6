@@ -1,0 +1,21 @@
+import PersistModel from '../../../model/PersistModel.js6'
+let callBack = {};
+export default class Persist extends PersistModel{
+    static sync(){
+
+    }
+    static set(psParamId, pParaVal){
+        var res = super.set(psParamId, pParaVal);
+        if(callBack[psParamId]){
+            for(var i in callBack[psParamId]){
+            callBack[psParamId][i](pParaVal);	
+            }
+        }
+    }
+    static addListener(psParamId, pfCallback) {
+        if(!callBack[psParamId]){
+            callBack[psParamId] = [];
+        }
+        callBack[psParamId].push(pfCallback);
+    } 
+}

@@ -1,0 +1,44 @@
+import Persist from './PersistModel.js6' 
+export default class AppModel{
+    constructor(id, props){
+	    this.id = id;
+	    this.props = props;
+        this.sendProps();
+    }
+    set(prop, val){
+        this.props[prop] = val;
+    }
+    get(prop){
+        return this.prop[prop];
+    }
+    getId(){
+       return this.id; 
+    }
+    getChildId(childName){
+        return this.id + '.' + childName;
+    }
+    changeId(newId){
+        this.removePersist();
+        this.id = newId;
+        this.sendProps();
+    }
+
+    /// Sync  methodes ///
+    removePersist(){
+       Persist.remove(this.id); 
+    }
+    sendProps(){
+       Persist.setObject(this.id, this.props); 
+    }
+    receiveProps(){
+       this.props = Persist.get(this.id); 
+    }
+    getSync(prop){
+        this.prop[prop] = Persist.get(this.id+'.'+prop); 
+        return this.get(prop);
+    }
+    setSync(prop, val){
+        this.set(prop, val);
+        Persist.set(this.id+'.'+prop, val)
+    }
+};

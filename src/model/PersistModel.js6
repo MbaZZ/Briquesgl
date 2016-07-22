@@ -1,5 +1,5 @@
 let list= {};
-export default class SettingModel{
+export default class PersistModel{
     static initialize(psParamId, psParamVal, psDefValue){
         psParamVal=psParamVal==null || psParamVal==undefined?psDefValue:psParamVal;
         list[psParamId] = psParamVal;
@@ -10,18 +10,21 @@ export default class SettingModel{
     static set(psParamId, psParamVal){
         list[psParamId] = psParamVal;
     }
+    static remove(psParamId){
+        list[psParamId] = undefined;
+    }
     static setObject(psParamId, poParamVal){
         var curPath = psParamId;
         for(var i in poParamVal){
            curPath = psParamId + '.' +i; 
                
            if(typeof poParamVal[i] === "object") 
-                SettingModel.setObject(curPath, poParamVal[i]);
+                PersistModel.setObject(curPath, poParamVal[i]);
            else
-                SettingModel.set(curPath, poParamVal[i]);
+                PersistModel.set(curPath, poParamVal[i]);
 
            if(poParamVal[i] instanceof Array)
-               SettingModel.set(curPath + '.length', poParamVal[i].length);
+               PersistModel.set(curPath + '.length', poParamVal[i].length);
         }
     }
 }

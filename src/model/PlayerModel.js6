@@ -1,18 +1,22 @@
+import AppModel from './AppModel.js6' 
 import Inventaire from './utils/Inventaire.js6'
 import balleModel from './BallModel.js6';
 
-export default class PlayerModel{
-    constructor(){
-        this.props = {
-            pseudo:"pasDeNom",
+export default class PlayerModel extends AppModel{
+    constructor(id, name, pfOnHit){
+        super(id + '.' + name, {
+            pseudo:name,
             score:0,
             bonus:0,
-            balles: new Inventaire(),
-            pouvoirs: new Inventaire(),
+            balles: {},
+            pouvoirs: {},
             partieEnCours:null
-        };
+        });
+        this.balles = new Inventaire();
+        this.pouvoirs= new Inventaire();
+        this.fOnHit = pfOnHit;
     }
-    getPseudo(){
+    getName(){
         return this.props.pseudo;
     }
     winBall(){
@@ -26,5 +30,12 @@ export default class PlayerModel{
     }
     usePouvoir(pCode){
         var loBM = this.props.pouvoirs.useItem(); 
+    }
+    marquerPoints(nb){
+        this.props.score += nb;
+        this.fOnHit(nb);
+    }
+    razScore(){
+        this.props.score = 0;
     }
 }

@@ -1,8 +1,8 @@
 import {SphereGeometry, Mesh, MeshBasicMaterial} from 'three';
 
 export default class BriqueBall extends Mesh{
-    constructor(){
-        super(  );
+    constructor(ballModel){
+        super();
 //new MeshBasicMaterial() 
 	    this.rayon = 100;//80;
         this.geometry = new SphereGeometry(this.rayon, 32, 16 );

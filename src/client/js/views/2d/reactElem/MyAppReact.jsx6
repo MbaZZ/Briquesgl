@@ -1,5 +1,5 @@
 import React from 'react';
-import Param from '../../metier/Setting.js6';
+import PersistModel from '../../metier/Persist.js6';
 
 export default class MyAppReact extends React.Component {
   constructor(props, context){
@@ -12,17 +12,17 @@ export default class MyAppReact extends React.Component {
       for(var i in this.props.data.syncState){
           console.log('syncrhonisation state ' + i + ' avec la donnée ' + this.props.data.syncState[i]);
 	  var lsDataPath = this.props.data.syncState[i];
-          Param.addListener(lsDataPath, function(pParaVal){
-              loThis.updateState(i, pParamVal);
+          PersistModel.addListener(lsDataPath, function(pParaVal){
+              loThis.updateState(i, pPersistModelVal);
           });
-	  var value = Param.get(lsDataPath);
+	  var value = PersistModel.get(lsDataPath);
           if(value)
 	  	this.updateState(i, value);
       }
     }
   }
-  updateState(psStateName, pParamVal){
-	this.state[psStateName] = pParamVal; 
+  updateState(psStateName, pPersistModelVal){
+	this.state[psStateName] = pPersistModelVal; 
 	this.setState(this.state);
   }
 

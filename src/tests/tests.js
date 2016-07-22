@@ -1,8 +1,8 @@
 //var expect = require("expect.js");
-var metierTest = require("./metierTests.js");
-describe("Tests metier", function() {
-   metierTest.testInstance();
-   metierTest.testInitState();
+var modelClientTests = require("./modelClientTests.js");
+describe("Tests des models client", function() {
+   modelClientTests.testInstance();
+   modelClientTests.testInitState();
 });
 
 /*
@@ -12,7 +12,15 @@ describe("Tests controllers", function() {
    controllerTest.testInitState();
 });
 */
-var paramTest = require("./paramsTest.js");
+var paramTest = require("./persistTests.js");
 describe("Tests SettingsModel", function() {
     paramTest.simpleTest();
+});
+
+var modelTest = require("./appModelTests.js");
+describe("Tests des models app", function() {
+   modelTest.testInstance();
+   modelTest.testInitState();
+   modelTest.testAddPlayer();
+   modelTest.testPlayer();
 });

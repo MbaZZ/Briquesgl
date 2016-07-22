@@ -1,17 +1,20 @@
-export default class Inventaire{ 
-    constructor(){
-        this.nbRestant = 0;
-        this.nbAjoute = 0;
-        this.items = [];
+import AppModel from '../AppModel.js6' 
+export default class Inventaire extends AppModel{ 
+    constructor(id){
+        super(id, {
+            nbRestant : 0,
+            nbAjoute : 0,
+            items : []
+        });
     }
     addItem(poItem){
-        this.nbAjoute++;
-        this.nbRestant++;
-        if(this.items[this.getCode(poItem)]){
-            var loItem = this.items[poItem.code];
+        this.props.nbAjoute++;
+        this.props.nbRestant++;
+        if(this.props.items[this.getCode(poItem)]){
+            var loItem = this.props.items[poItem.code];
             loItem.quantite++;
         }else{
-            this.items[this.lastId] = poItem;
+            this.props.items[this.lastId] = poItem;
             if(poItem.onAdd){
                 poItem.onAdd();
             }
@@ -20,18 +23,21 @@ export default class Inventaire{
     }
     useItem(pCode){
         if(!pCode) pCode="std";
-        this.nbRestant--;
-        if(this.nbRestant<1 || !this.items[pCode]) return null
-        var loItem = this.items[pCode];
+        this.props.nbRestant--;
+        if(this.props.nbRestant<1 || !this.props.items[pCode]) return null
+        var loItem = this.props.items[pCode];
         if(loItem.onUse){
             loItem.onUse();
         }
-        this.items[pCode].quantite--;
-        if(loItem.quantite<1)this.items[pCode]=null;
+        this.props.items[pCode].quantite--;
+        if(loItem.quantite<1)this.props.items[pCode]=null;
         return loItem;
     }
     getCode(pObject){
         if(!pObject.code) pObject.code = "std";
         return pObject.code;
     }
+    getData(){
+        return this.props;
+    } 
 }

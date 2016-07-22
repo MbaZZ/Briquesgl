@@ -1,19 +1,47 @@
-export default class GameModel{
+import AppModel from './AppModel.js6' 
+import PlayerModel from './PlayerModel.js6';
+export default class GameModel extends AppModel{
     constructor(){
-        this.props = {
-            "players":[],
+        super('game', {
             "scoreCumule":0,
             "statut":"NotStarted"
-        };
-        console.log('new instance of GameModel ES6');
+        });
+        this.players = {};
+        this.nbPlayers = 0;
     }
     isStarted(){
         return this.props.statut == "started"; 
     }
-    getNumberOfPlayer(){
-        return this.props.players.length; 
+    stop(){
+        this.props.statut = "NotStarted";
+        return true;
+    }
+    start(){
+        if(this.getNumberOfPlayers() < 1)
+            return false;
+
+        this.props.scoreCumule = 0;
+        this.props.statut = "started";
+        return true;
+    }
+    getNumberOfPlayers(){
+        return this.nbPlayers; 
     }
     getScore(){
         return this.props.scoreCumule; 
+    }
+    addPlayer(name){
+        if(this.isStarted()) 
+            return false;
+
+        if(this.players[name]){
+            return this.addPlayer(name + '1');
+        }
+        var loThis = this;
+        this.players[name] = new PlayerModel(this.getChildId('players'), name, function(newPoints){
+              loThis.scoreCumule += newPoints; 
+        }); 
+        this.nbPlayers ++;
+        return this.players[name];
     }
 }

@@ -4,9 +4,6 @@ buildDir=../../build/
 dst=$(buildDir)
 testDir=$(buildDir)tests/client/
 all: depend
-	@echo "----------------------------"
-	@echo "build client"
-	@echo "----------------------------"
 depend:	
 	@echo "Build depends"
 	@for child in $(childs) ; do \

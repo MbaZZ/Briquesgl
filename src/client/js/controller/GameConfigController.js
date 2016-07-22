@@ -33,7 +33,18 @@ function GameConfigController(){
     Setting.set('game.currentLevel', 'Level 1 : Ca va piquer !');
 
 }
-GameConfigController.prototype.home=function(){
+GameConfigController.prototype.renderPreview=function(){
+    layout.render('Home', dataView);
+    this.scene = new objet3D.Scene(); 
+    this.renderer = new objet3D.Renderer();
+    this.ball = new objet3D.Ball();
+    this.camera = new objet3D.Camera();
+    this.scene.add(this.ball);
+    this.renderer.render(this.scene, this.camera);
+    document.getElementById('renderPreview3D').appendChild(this.renderer.domElement); 
+    return {view:'Home', data:dataView};
+};
+GameConfigController.prototype.renderTest1=function(){
     layout.render('Home', dataView);
     this.scene = new objet3D.Scene(); 
     this.renderer = new objet3D.Renderer();
