@@ -17,8 +17,10 @@ export default class GameModel extends AppModel{
         return true;
     }
     start(){
-        if(this.getNumberOfPlayers() < 1)
+        if(this.getNumberOfPlayers() < 1){
+            console.log('Erreur, impossible de démarrer une partie sans joueur');
             return false;
+        }
 
         this.props.scoreCumule = 0;
         this.props.statut = "started";
@@ -39,7 +41,10 @@ export default class GameModel extends AppModel{
         }
         var loThis = this;
         this.players[name] = new PlayerModel(this.getChildId('players'), name, function(newPoints){
-              loThis.scoreCumule += newPoints; 
+            if(!loThis.isStarted())
+                return false;
+            loThis.props.scoreCumule = parseInt(newPoints) + parseInt(loThis.props.scoreCumule); 
+            return true;
         }); 
         this.nbPlayers ++;
         return this.players[name];

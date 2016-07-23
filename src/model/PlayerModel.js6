@@ -19,6 +19,9 @@ export default class PlayerModel extends AppModel{
     getName(){
         return this.props.pseudo;
     }
+    getScore(){
+        return this.props.score;
+    }
     winBall(){
        this.props.balles.addItem(balleModel.create.fromProps({"proprietaire":this})); 
     }
@@ -32,8 +35,10 @@ export default class PlayerModel extends AppModel{
         var loBM = this.props.pouvoirs.useItem(); 
     }
     marquerPoints(nb){
+        if(!this.fOnHit(nb))
+            return false;
         this.props.score += nb;
-        this.fOnHit(nb);
+        return true;
     }
     razScore(){
         this.props.score = 0;
