@@ -19,10 +19,24 @@ ModelTests.prototype.testAddPlayer= function(){
 };
 ModelTests.prototype.testPlayer= function(PlayerName){
     this.gameTesteur.stopGame();
-    var player = new PlayerTesteur(this.gameTesteur, this.gameTesteur.addPlayer('René'));
-    player.cannotWinPoints(100);
+    var playerTesteur = new PlayerTesteur(this.gameTesteur, this.gameTesteur.addPlayer('René'));
+    playerTesteur.cannotWinPoints(100);
+    playerTesteur.cannotWinPoints(100);
+    playerTesteur.cannotWinBall();
+    playerTesteur.cannotUseBall();
+    playerTesteur.cannotWinPouvoir();
+    playerTesteur.cannotUsePouvoir();
     this.gameTesteur.startGame();
-    player.winPoints(100);
+    playerTesteur.winPoints(100);
+    playerTesteur.winBall();
+    playerTesteur.useBall();
+    playerTesteur.winPouvoir();
+    playerTesteur.usePouvoir();
     this.gameTesteur.stopGame();
+    playerTesteur.cannotWinPoints(100);
+    playerTesteur.cannotWinBall();
+    playerTesteur.cannotUseBall();
+    playerTesteur.cannotWinPouvoir();
+    playerTesteur.cannotUsePouvoir();
 };
 module.exports = new ModelTests();

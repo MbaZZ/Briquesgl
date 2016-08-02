@@ -2,7 +2,7 @@ var expect = require("expect.js");
 function PlayerTest(game, player){
     this.game = game;
     this.player = player;
-    it("Player have property", function() {
+    it("Player have properties", function() {
         expect(player.props).to.be.an(Object);
     });
 }
@@ -29,17 +29,67 @@ PlayerTest.prototype.cannotWinPoints=function(piNb){
     });
 };
 PlayerTest.prototype.winBall=function(){
+    var player = this.player;
+    it("Player win ball", function() {
+        var nbBall = player.getNbBalls();
+        expect(player.winBall("std")).to.eql(true);
+        expect(player.getNbBalls()).to.eql(nbBall + 1);  
+    });
+};
+PlayerTest.prototype.cannotWinBall=function(){
+    var player = this.player;
+    it("Player can't win ball", function() {
+        var nbBall = player.getNbBalls();
+        expect(player.winBall("std")).to.eql(false);
+        expect(player.getNbBalls()).to.eql(nbBall);  
+    });
 };
 PlayerTest.prototype.useBall=function(){
+    var player = this.player;
+    it("Player use Ball", function() {
+        var nbBall = player.getNbBalls();
+        expect(player.winBall(piNb)).to.eql(true);
+        expect(player.getNbBalls()).to.eql(nbBall - 1);  
+    });
 };
-PlayerTest.prototype.cantUseBall=function(){
+PlayerTest.prototype.cannotUseBall=function(){
+    var player = this.player;
+    it("Player can't use Ball", function() {
+        var nbBall = player.getNbBalls();
+        expect(player.winBall(piNb)).to.eql(false);
+        expect(player.getNbBalls()).to.eql(nbBall);  
+    });
 };
 PlayerTest.prototype.winPouvoir=function(){
+    var player = this.player;
+    it("Player win pouvoir", function() {
+        var nbPouvoir = player.getNbPouvoirs();
+        expect(player.winPouvoir('superBonus')).to.eql(true);
+        expect(player.getNbBalls()).to.eql(nbPouvoir + 1);  
+    });
+};
+PlayerTest.prototype.cannotWinPouvoir=function(){
+    var player = this.player;
+    it("Player can't win pouvoir", function() {
+        var nbPouvoir = player.getNbPouvoirs();
+        expect(player.winPouvoir('superBonus')).to.eql(false);
+        expect(player.getNbPouvoirs()).to.eql(nbPouvoir);  
+    });
 };
 PlayerTest.prototype.usePouvoir=function(){
+    var player = this.player;
+    it("Player use pouvoir", function() {
+        var nbPouvoir = player.getNbPouvoirs();
+        expect(player.usePouvoir('superBonus')).to.eql(true);
+        expect(player.getNbPouvoirs()).to.eql(nbPouvoir -1);  
+    });
 };
-PlayerTest.prototype.cantUsePouvoir=function(){
-};
-PlayerTest.prototype.addPlayer=function(){
+PlayerTest.prototype.cannotUsePouvoir=function(){
+    var player = this.player;
+    it("Player can't use pouvoir", function() {
+        var nbPouvoir = player.getNbPouvoirs();
+        expect(player.usePouvoir('superBonus')).to.eql(false);
+        expect(player.getNbPouvoirs()).to.eql(nbPouvoir);  
+    });
 };
 module.exports=PlayerTest;
