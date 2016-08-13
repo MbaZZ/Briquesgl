@@ -40,13 +40,14 @@ export default class GameModel extends AppModel{
             return this.addPlayer(name + '1');
         }
         var loThis = this;
-        this.players[name] = new PlayerModel(this.getChildId('players'), name, function(newPoints){
-            if(!loThis.isStarted())
-                return false;
-            loThis.props.scoreCumule = parseInt(newPoints) + parseInt(loThis.props.scoreCumule); 
-            return true;
-        }); 
+        this.players[name] = new PlayerModel(this.getChildId('players'), name, this);
         this.nbPlayers ++;
         return this.players[name];
+    }
+    onPlayerWinPoints(piNbPoints){
+        if(!this.isStarted())
+                return false;
+        this.props.scoreCumule = parseInt(piNbPoints) + parseInt(this.props.scoreCumule); 
+        return true;
     }
 }

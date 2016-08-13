@@ -1,10 +1,11 @@
-export default PouvoirModel{
-    constructor(poProps){
-        this.proprietes = {
+import AppModel from './AppModel.js6' 
+export default class PouvoirModel extends AppModel{
+    constructor(id, poProps){
+        super(id, {
            "code":0,
            "bonus":null,
            "proprietaire":null
-        };
+        });
         if(poProps){
             for(var i in poProps){
                 this[i] = poProps[i];

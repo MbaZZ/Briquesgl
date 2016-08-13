@@ -1,46 +1,68 @@
 import AppModel from './AppModel.js6' 
 import Inventaire from './utils/Inventaire.js6'
-import balleModel from './BallModel.js6';
+import BallModel from './BallModel.js6';
+import PouvoirModel from './PouvoirModel.js6';
 
 export default class PlayerModel extends AppModel{
-    constructor(id, name, pfOnHit){
-        super(id + '.' + name, {
-            pseudo:name,
+    constructor(piId, psName, poGameModel){
+        super(piId+ '.' + psName, {
+            pseudo:psName,
             score:0,
             bonus:0,
             balles: {},
             pouvoirs: {},
             partieEnCours:null
         });
+        this.game = poGameModel;
         this.balles = new Inventaire();
         this.pouvoirs= new Inventaire();
-        this.fOnHit = pfOnHit;
     }
     getName(){
         return this.props.pseudo;
+    }
+    getNbBalls(){
+        return this.balles.getSize();
+    }
+    getNbPouvoirs(){
+        return this.pouvoirs.getSize();
     }
     getScore(){
         return this.props.score;
     }
     winBall(){
-       this.props.balles.addItem(balleModel.create.fromProps({"proprietaire":this})); 
+        if(!this.game.isStarted()) return false;
+        var ball = new BallModel();  
+        ball.set("proprietaire", this.getId());
+        this.balles.addItem(ball); 
+        return true;
     }
     useBall(){
-        var loBM = this.props.balles.useItem(); 
+        if(!this.game.isStarted()) return false;
+        var loBM = this.balles.useItem(); 
+        return true;
     }
     winPouvoir(pCode){
-       this.props.pouvoirs.addItem(Pouvoir.create.fromProps({"proprietaire":this, "code":pCode})); 
+        if(!this.game.isStarted()) return false;
+        var pv = new PouvoirModel();
+        pv.set("proprietaire", this.getId());
+        pv.set("code", pCode);
+        this.pouvoirs.addItem(pv); 
+        return true;
     }
     usePouvoir(pCode){
-        var loBM = this.props.pouvoirs.useItem(); 
+        if(!this.game.isStarted()) return false;
+        var loBM = this.pouvoirs.useItem(); 
+        return true;
     }
     marquerPoints(nb){
-        if(!this.fOnHit(nb))
+        if(!this.game.isStarted()) return false;
+        if(!this.game.onPlayerWinPoints(nb))
             return false;
         this.props.score += nb;
         return true;
     }
     razScore(){
         this.props.score = 0;
+        return true;
     }
 }

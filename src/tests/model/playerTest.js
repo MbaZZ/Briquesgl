@@ -48,15 +48,14 @@ PlayerTest.prototype.useBall=function(){
     var player = this.player;
     it("Player use Ball", function() {
         var nbBall = player.getNbBalls();
-        expect(player.winBall(piNb)).to.eql(true);
-        expect(player.getNbBalls()).to.eql(nbBall - 1);  
+        expect(player.winBall()).to.eql(true);
     });
 };
 PlayerTest.prototype.cannotUseBall=function(){
     var player = this.player;
     it("Player can't use Ball", function() {
         var nbBall = player.getNbBalls();
-        expect(player.winBall(piNb)).to.eql(false);
+        expect(player.winBall()).to.eql(false);
         expect(player.getNbBalls()).to.eql(nbBall);  
     });
 };
@@ -65,7 +64,7 @@ PlayerTest.prototype.winPouvoir=function(){
     it("Player win pouvoir", function() {
         var nbPouvoir = player.getNbPouvoirs();
         expect(player.winPouvoir('superBonus')).to.eql(true);
-        expect(player.getNbBalls()).to.eql(nbPouvoir + 1);  
+        expect(player.getNbPouvoirs()).to.eql(nbPouvoir + 1);  
     });
 };
 PlayerTest.prototype.cannotWinPouvoir=function(){

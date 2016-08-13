@@ -2,7 +2,7 @@ import Persist from './PersistModel.js6'
 export default class AppModel{
     constructor(id, props){
 	    this.id = id;
-	    this.props = props;
+	    this.props = !props?{}:props;
         this.sendProps();
     }
     set(prop, val){
@@ -23,7 +23,7 @@ export default class AppModel{
         this.sendProps();
     }
 
-    /// Sync  methodes ///
+    /// Sync local <-> persist ///
     removePersist(){
        Persist.remove(this.id); 
     }

@@ -40,4 +40,7 @@ export default class Inventaire extends AppModel{
     getData(){
         return this.props;
     } 
+    getSize(){
+        return this.props.nbRestant;
+    } 
 }
