@@ -1,5 +1,5 @@
 import React from 'react';
-import PersistModel from '../../metier/Persist.js6';
+import PersistModel from '../../../model/Persist.js6';
 
 export default class MyAppReact extends React.Component {
   constructor(props, context){

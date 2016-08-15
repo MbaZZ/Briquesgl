@@ -1,19 +1,19 @@
-var layout = require('../2Dviews/LayoutManager.jsx'); 
+var layout = require('../views/2d/LayoutManager.jsx'); 
 
 var objet3D = {
-    Scene : require('../3Dviews/BriqueScene.js6').default,
-    Ball : require('../3Dviews/BriqueBall.js6').default,
-    Camera : require('../3Dviews/BriqueCamera.js6').default,
-    Renderer : require('../3Dviews/BriqueRenderer.js6').default
+    Scene : require('../views/3d/objects/BriqueScene.js6').default,
+    Ball : require('../views/3d/objects/BriqueBall.js6').default,
+    Camera : require('../views/3d/objects/BriqueCamera.js6').default,
+    Renderer : require('../views/3d/objects/BriqueRenderer.js6').default
 };
-var Game = require('../metier/Game.js6').default;
-var Setting = require('../metier/Setting.js6').default;
+var Game = require('../model/Game.js6').default;
+var Persist = require('../model/Persist.js6').default;
 var dataView  = require('../params/viewData.fr.json');
 function GameConfigController(){
     this.gameModel = new Game();
     this.levelCourrant = 'home';
 
-    //Setting par defaut
+    //Persist par defaut
     var lsZikName='MbZ_session1.mp3';
     switch(this.levelCourrant){
     	case 'home':lsZikName='Finn_The_Giant_Meets_Sandmonk__New_Dub_Order_64kb.mp3';break;
@@ -21,16 +21,16 @@ function GameConfigController(){
     	case 'level4':case 'level7': lsZikName = 'Mike_Errecart.-.Monkey-bubble.mp3';break;
     	default:lsZikName='MbZ_session1.mp3';
     }
-    Setting.initialize('activerZik', true);
-    Setting.initialize('activerEffetSon', true);
-    Setting.initialize('zik', lsZikName);
-    //unused for the moment : Setting.sync();
+    Persist.initialize('activerZik', true);
+    Persist.initialize('activerEffetSon', true);
+    Persist.initialize('zik', lsZikName);
+    //unused for the moment : Persist.sync();
 
-    //Setting.initialize('game.player.current.pseudo', 'Jean much much');
-    Setting.set('game.player.current.pseudo', 'Jean much much');
-    Setting.set('game.settings.difficulty', 4);
-    Setting.set('game.stage', 'Stage 1 : Aie');
-    Setting.set('game.currentLevel', 'Level 1 : Ca va piquer !');
+    //Persist.initialize('game.player.current.pseudo', 'Jean much much');
+    Persist.set('game.player.current.pseudo', 'Jean much much');
+    Persist.set('game.settings.difficulty', 4);
+    Persist.set('game.stage', 'Stage 1 : Aie');
+    Persist.set('game.currentLevel', 'Level 1 : Ca va piquer !');
 
 }
 GameConfigController.prototype.renderPreview=function(){

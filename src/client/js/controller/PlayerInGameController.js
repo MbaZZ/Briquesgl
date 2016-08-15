@@ -1,5 +1,5 @@
-var Player = require('../metier/Player.js6');
-var Scene3D = require('../3Dviews/BriqueScene.js6').default;
+var Player = require('../model/Player.js6');
+var Scene3D = require('../views/3d/objects/BriqueScene.js6').default;
 
 function PlayerInGameController(){ 
     this.playerModel = new Player.default();
