@@ -8,6 +8,7 @@ export default class PersistModel{
         return list[psParamId];
     }
     static set(psParamId, psParamVal){
+        console.log("add " + psParamId + ' -> ' + psParamVal);
         list[psParamId] = psParamVal;
     }
     static remove(psParamId){
@@ -17,7 +18,6 @@ export default class PersistModel{
         var curPath = psParamId;
         for(var i in poParamVal){
            curPath = psParamId + '.' +i; 
-               
            if(typeof poParamVal[i] === "object") 
                 PersistModel.setObject(curPath, poParamVal[i]);
            else
@@ -26,5 +26,31 @@ export default class PersistModel{
            if(poParamVal[i] instanceof Array)
                PersistModel.set(curPath + '.length', poParamVal[i].length);
         }
+    }
+    static getJson(){
+        var res = {};
+        for(var i in list){
+            console.log('Traitement de : ' +i + ' = ' + list[i] )
+            console.log('--------------------------------');
+            var idSplit = i.split('.');
+            var pt_precLevel = res;
+            for(var j in idSplit){
+                console.log('--- ');
+                var tmpId = idSplit[j];
+                console.log(' niveau ' + j  +' dernier elem ' + (idSplit.length -1)  + 'Calcul ' + i);
+                if(j == idSplit.length -1){
+                    pt_precLevel[tmpId] = list[i];
+                }else{
+                    if(!pt_precLevel[tmpId])
+                        pt_precLevel[tmpId] = {};
+                }
+                console.log('pt : + ' + tmpId);
+                pt_precLevel = res[tmpId];
+                console.log(JSON.stringify(res));
+            }
+            //res[idSplit[idSplit.length -1]] = list[i];
+            console.log('--------------------------------');
+        }
+        return res;
     }
 }

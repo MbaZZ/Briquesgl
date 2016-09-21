@@ -12,8 +12,8 @@ export default class PlayerModel extends AppModel{
             pouvoirs: {},
             partieEnCours:null
         });
-        this.balles = new Inventaire();
-        this.pouvoirs= new Inventaire();
+        this.balls = new Inventaire(this.getChildId("balls"));
+        this.pouvoirs= new Inventaire(this.getChildId("pouvoirs"));
         this.fOnHit = pfOnHit;
     }
     getName(){

@@ -2,7 +2,7 @@ var paramTest = require("./persistTests.js");
 describe("Persistance des données", function() {
     paramTest.simpleTest();
 });
-
+/*
 var modelTest = require("./appModelTests.js");
     describe("Class metier", function() {
     modelTest.testInstance();
@@ -16,3 +16,4 @@ describe("Models client", function() {
    modelClientTests.testInstance();
    modelClientTests.testInitState();
 });
+*/

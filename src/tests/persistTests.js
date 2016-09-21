@@ -6,6 +6,11 @@ PersistModelTest.prototype.simpleTest=function(){
     it("SetPersistModel", function() {
         PersistModel.set("toto","tutu");
         expect(PersistModel.get("toto")).to.eql("tutu");
+        PersistModel.set("tonton.fille","titi");
+        PersistModel.set("tonton.fils","JeanClaude");
+        PersistModel.set("tonton.Auguste.fils","Jean-Michel");
+        PersistModel.set("Tibeau","tutu");
+    //    console.log(" ---- > " + JSON.stringify(PersistModel.getJson()));
     });
     it("Initialize default value", function() {
         PersistModel.initialize("toto",null, "toto");

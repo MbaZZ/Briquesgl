@@ -23,6 +23,9 @@ export default class GameModel extends AppModel{
         }
 
         this.props.scoreCumule = 0;
+        for(var i in this.players){
+            this.players[i].razScore();
+        }
         this.props.statut = "started";
         return true;
     }
